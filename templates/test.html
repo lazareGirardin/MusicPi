@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <head>
+    <title>PiPlayer</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/main.css') }}">
+  </head>
+</head>
+<body>
+  <h1>Hello</h1>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script type=text/javascript src="{{ url_for('static', filename='javascript/button_control.js') }}"> </script>
+
+    <div class='container'>
+            <form>
+                <a href=# id=pause><button class='btn btn-default'>Play/Pause</button></a>
+                <a href=# id=next><button class='btn btn-default'>>></button></a>
+            </form>
+    </div>
+
+    <br>
+    <form action="{{ url_for('handle_url_entry')}} " method='post'>
+      Copy the youtube link here:<br>
+      <input type="text" name="link_entry">
+      <input type="submit" value="Submit">
+    </form>
+    <div>
+      <h3 id="now_playing">Now Playing: {{ current }}</h3>
+        <p id="song1"> {{songs[0]}} </p>
+        <p id="song2"> {{songs[1]}} </p>
+        <p id="song3"> {{songs[2]}} </p>
+        <p id="song4"> {{songs[3]}} </p>
+        <p id="song5"> {{songs[4]}} </p>
+    </div>
+</body>
+</html>
