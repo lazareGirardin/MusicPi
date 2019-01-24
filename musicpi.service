@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=root
-ExecStart=/bin/bash /home/pi/musicData/musicpi.sh
+ExecStart=/bin/bash /home/pi/musicPi/musicpi.sh
 Restart=always
 RestartSec=5s
 
