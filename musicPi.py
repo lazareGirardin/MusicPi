@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 #from flask_socketio import SocketIO, emit
 import time
 from playerClass import PiPlayer, PlaylistLooper
+import os
 
 
 app = Flask(__name__)
@@ -47,6 +48,12 @@ def next_pressed():
     for i in range(5):
         value[str(i)] = songs[i]
     return jsonify(value)
+
+
+@app.route('/power_of_pi')
+def power_off():
+    # add some clean stuff here...
+    os.system('shutdown -t now')
 
 def add_entry(entry):
     pi_player.add_entry(entry)
