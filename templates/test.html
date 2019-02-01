@@ -33,8 +33,9 @@
         <p id="song4"> {{songs[3]}} </p>
         <p id="song5"> {{songs[4]}} </p>
     </div>
-    <div id="turn_off">
-      <a href=”/power_of_pi”><input type=”button” value='POWER OFF RPi'></a>
+    <div id="turn_off" style="display: flex; justify-content: flex-end">
+      <a href=/power_off_pi><input type=”button” value='POWEROFF'
+        onclick="return confirm('Are you sure you want to shut the RPi off?')"></a>
     </div>
 </body>
 </html>

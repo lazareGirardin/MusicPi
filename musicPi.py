@@ -50,10 +50,11 @@ def next_pressed():
     return jsonify(value)
 
 
-@app.route('/power_of_pi')
+@app.route('/power_off_pi')
 def power_off():
     # add some clean stuff here...
     os.system('shutdown -t now')
+    return "Bye Bye"
 
 def add_entry(entry):
     pi_player.add_entry(entry)
