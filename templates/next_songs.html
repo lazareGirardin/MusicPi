@@ -1,0 +1,6 @@
+<label id="value_lable">
+    <h3 id="now_playing">Now Playing: {{ current }}</h3>
+    {% for song in songs %}
+        <p>{{ song }}</p>
+    {% endfor %}
+</label>

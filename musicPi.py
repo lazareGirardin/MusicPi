@@ -15,12 +15,10 @@ looper.start()
 
 @app.route('/')
 def main_page():
-    songs = pi_player.get_next_song_list(5)
-    if pi_player.is_playing:
-        return render_template('test.html', current=pi_player.now_playing[1], songs=songs)
-    else:
-        return render_template('test.html', songs=songs)
-    return render_template('test.html')
+    #songs = pi_player.get_next_song_list(5)
+    songs = pi_player.get_all_songs()
+    return render_template('test.html', mainPage=True, songs=songs,
+                            current=pi_player.now_playing[1])
 
 @app.route('/handle_url_entry', methods=['POST'])
 def handle_url_entry():
@@ -39,16 +37,21 @@ def pause_pressed():
     pi_player.set_pause()
     return "nothing"
 
+# @app.route('/next_pressed')
+# def next_pressed():
+#     pi_player.set_next()
+#     songs = pi_player.get_next_song_list(5)
+#     value = {}
+#     value['now'] = pi_player.now_playing[1]
+#     for i in range(5):
+#         value[str(i)] = songs[i]
+#     return jsonify(value)
+
 @app.route('/next_pressed')
 def next_pressed():
     pi_player.set_next()
-    songs = pi_player.get_next_song_list(5)
-    value = {}
-    value['now'] = pi_player.now_playing[1]
-    for i in range(5):
-        value[str(i)] = songs[i]
-    return jsonify(value)
-
+    songs = pi_player.get_all_songs()
+    return render_template('next_songs.html', current=pi_player.now_playing[1], songs=songs)
 
 @app.route('/power_off_pi')
 def power_off():

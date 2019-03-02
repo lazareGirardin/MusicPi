@@ -8,7 +8,7 @@
   </head>
 </head>
 <body>
-  <h1>Hello</h1>
+  <h1>PiPlayer</h1>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script type=text/javascript src="{{ url_for('static', filename='javascript/button_control.js') }}"> </script>
 
@@ -26,12 +26,14 @@
       <input type="submit" value="Submit">
     </form>
     <div>
-      <h3 id="now_playing">Now Playing: {{ current }}</h3>
-        <p id="song1"> {{songs[0]}} </p>
-        <p id="song2"> {{songs[1]}} </p>
-        <p id="song3"> {{songs[2]}} </p>
-        <p id="song4"> {{songs[3]}} </p>
-        <p id="song5"> {{songs[4]}} </p>
+      <div id='next_songs'>
+        {% if mainPage %}
+        <h3 id="now_playing">Now Playing: {{ current }}</h3>
+        {% for song in songs %}
+          <p> {{ song }} </p>
+        {% endfor %}
+        {%endif%}
+      </div>
     </div>
     <div id="turn_off" style="display: flex; justify-content: flex-end">
       <a href=/power_off_pi><input type=”button” value='POWEROFF'

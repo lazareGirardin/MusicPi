@@ -54,6 +54,8 @@ class PiPlayer:
 
         self.Media = None
 
+        #self.load_playlist('playlist_test.txt')
+
     def get_state(self):
         return self.player.get_state()
     def get_play_state(self):
@@ -74,6 +76,12 @@ class PiPlayer:
                 result.append(self.to_play[i][self.TITLE])
             else:
                 result.append('')
+        return result
+
+    def get_all_songs(self):
+        result=[]
+        for entry in self.to_play:
+            result.append(entry[self.TITLE])
         return result
 
     def get_next_song(self):
