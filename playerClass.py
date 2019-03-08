@@ -60,8 +60,14 @@ class PiPlayer:
         return self.player.get_state()
     def get_play_state(self):
         return self.is_playing
-    def set_play_state(self, bool):
-        self.is_playing = bool
+    def set_play_state(self, _bool):
+        self.is_playing = _bool
+
+    def get_current_song(self):
+        song = None
+        if self.is_playing:
+            song = self.now_playing[self.TITLE]
+        return song
 
     def load_playlist(self, path):
         self.to_play = []

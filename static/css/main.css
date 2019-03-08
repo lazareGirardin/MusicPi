@@ -1,21 +1,66 @@
-.playpause {
-  label {
-    display: block;
-    box-sizing: border-box;
-    width: 0;
-    height: 74px;
+body {
+  background-color: antiquewhite;
+  color: rgb(14, 13, 13);
+}
 
-    border-color: transparent transparent transparent #202020;
-    transition: 100ms all ease;
-    cursor: pointer;
-    border-style: double;
-    border-width: 0px 0 0px 60px;
-  }
-  input[type="checkbox"] {
-    visibility: hidden;
-    &:checked + label {
-      border-style: solid;
-      border-width: 37px 0 37px 60px;
-    }
-  }
+.container {
+  display: flex;
+  justify-content: center;
+}
+
+.links {
+  width: 400px;
+  height: 40px;
+  border-radius: 4px;
+}
+
+.button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: rgb(14, 13, 13);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.add_button {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: rgb(14, 13, 13);
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  width: 200px;
+  height: 40px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
 }

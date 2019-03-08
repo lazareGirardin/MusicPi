@@ -14,26 +14,31 @@
 
     <div class='container'>
             <form>
-                <a href=# id=pause><button class='btn btn-default'>Play/Pause</button></a>
-                <a href=# id=next><button class='btn btn-default'>>></button></a>
+                <a href=# id=pause><button class='button' style="vertical-align:middle">
+                  <span>Play/Pause</span>
+                </button></a>
+                <a href=# id=next><button class='button' style="vertical-align:middle">
+                  <span>
+                    Next
+                  </span>
+                </button></a>
             </form>
     </div>
 
     <br>
-    <form action="{{ url_for('handle_url_entry')}} " method='post'>
-      Copy the youtube link here:<br>
-      <input type="text" name="link_entry">
-      <input type="submit" value="Submit">
-    </form>
-    <div>
-      <div id='next_songs'>
-        {% if mainPage %}
+    <div class=container>
+      <form action="{{ url_for('handle_url_entry')}} " method='post'>
+        <input id="link_entry" type="text" name="link_entry" placeholder="Copy the link here" class="links">
+        <input type="submit" value="Add" class="add_button">
+      </form>
+    </div>
+    <div id='next_songs'>
+      {% if mainPage %}
         <h3 id="now_playing">Now Playing: {{ current }}</h3>
         {% for song in songs %}
           <p> {{ song }} </p>
         {% endfor %}
-        {%endif%}
-      </div>
+      {%endif%}
     </div>
     <div id="turn_off" style="display: flex; justify-content: flex-end">
       <a href=/power_off_pi><input type=”button” value='POWEROFF'

@@ -18,7 +18,7 @@ def main_page():
     #songs = pi_player.get_next_song_list(5)
     songs = pi_player.get_all_songs()
     return render_template('test.html', mainPage=True, songs=songs,
-                            current=pi_player.now_playing[1])
+                            current=pi_player.get_current_song())
 
 @app.route('/handle_url_entry', methods=['POST'])
 def handle_url_entry():
